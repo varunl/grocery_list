@@ -39,7 +39,7 @@ func (s *InMemoryStorage) retrieve() *GroceryList {
 
 func (s *InMemoryStorage) addStore(store string) {
 	if _, ok := s.memstore[store]; !ok {
-		memstore[store] = make([]byte, 0)
+		s.memstore[store] = make([]string, 0)
 	}
 }
 
@@ -47,12 +47,8 @@ func (s *InMemoryStorage) removeStore(store string) {
 	delete(s.memstore, store)
 }
 
-
-
 func (s *InMemoryStorage) addItem(store string, item string) {
-	if val, ok := s.memstore[store]; ok {
-		if 
 }
 
-func (s *InMemoryStorage) RemoveItem(store string, item string) {
+func (s *InMemoryStorage) removeItem(store string, item string) {
 }
