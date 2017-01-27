@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -16,7 +17,7 @@ func main() {
 	http.Handle("/grocery", gh)
 
 	fmt.Printf("Starting webserver, listening on port %s...\n", *port)
-	http.ListenAndServe(":"+*port, nil)
+	log.Fatal(http.ListenAndServe(":"+*port, nil))
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {

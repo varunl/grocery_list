@@ -6,8 +6,17 @@ type GroceryList struct {
 }
 
 type Storage interface {
-	// Store the contents of the grocery list in the storage.
-	store(g GroceryList)
+	// Add a store to the list
+	addStore(store string)
+
+	// Remove a store from the grocery list
+	removeStore(store string)
+
+	// add item to one of the stores
+	addItem(store string, item string)
+
+	// remove item from one of the stores
+	removeItem(store string, item string)
 
 	// Retrieve the contents of the grocery list.
 	retrieve() *GroceryList
@@ -24,9 +33,26 @@ func NewInMemoryStorage() *InMemoryStorage {
 	}
 }
 
-func (s *InMemoryStorage) store(g GroceryList) {
+func (s *InMemoryStorage) retrieve() *GroceryList {
+	return &GroceryList{s.memstore}
 }
 
-func (s *InMemoryStorage) retrieve() *GroceryList {
-	return nil
+func (s *InMemoryStorage) addStore(store string) {
+	if _, ok := s.memstore[store]; !ok {
+		memstore[store] = make([]byte, 0)
+	}
+}
+
+func (s *InMemoryStorage) removeStore(store string) {
+	delete(s.memstore, store)
+}
+
+
+
+func (s *InMemoryStorage) addItem(store string, item string) {
+	if val, ok := s.memstore[store]; ok {
+		if 
+}
+
+func (s *InMemoryStorage) RemoveItem(store string, item string) {
 }
