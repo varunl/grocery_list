@@ -24,6 +24,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Hello world!")
 }
 
+// Handler for grocery request.
 type GroceryHandler struct {
 	store Storage
 }

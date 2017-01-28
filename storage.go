@@ -5,6 +5,7 @@ type GroceryList struct {
 	storeList map[string][]string
 }
 
+// Interface for storage
 type Storage interface {
 	// Add a store to the list
 	addStore(store string)
